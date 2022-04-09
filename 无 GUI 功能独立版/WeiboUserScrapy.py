@@ -54,7 +54,7 @@ class WeiboUserScrapy():
     def deal_html(self, url):
         """处理html"""
         try:
-            html = requests.get(url, headers=self.headers,verify=False).content
+            html = requests.get(url.encode('utf8'), headers=self.headers,verify=False).content
             selector = etree.HTML(html)
             return selector
         except Exception as e:
@@ -553,3 +553,4 @@ class WeiboUserScrapy():
 
 if __name__ == '__main__':
     WeiboUserScrapy(user_id=2541980464, filter=0)
+    # WeiboUserScrapy(user_id=1643262832, filter=0)
